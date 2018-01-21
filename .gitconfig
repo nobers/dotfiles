@@ -1,0 +1,25 @@
+[user]
+	name = nobers
+	email = xeenns@gmail.com
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	editor = vim -c \"set fenc=utf-8\"
+	excludesfile = /Users/NOBU 1/.gitignore_global
+#	excludesfile = /Users/NOBU 1/.gitignore_global
+[url "github:"]
+    InsteadOf = https://github.com/
+    InsteadOf = git@github.com:
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
+[commit]
+	template = /Users/NOBU 1/.stCommitMsg
