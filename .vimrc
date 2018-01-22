@@ -51,13 +51,16 @@ set fileencoding=utf-8
 set clipboard=unnamed,autoselect	"ヤンク、クリップボード連携
 inoremap <silent> jj <ESC>		"jjでノーマルモードへ
 inoremap <silent> っj <ESC>		"日本語入力対応版 jj
-set fileencodings=iso-2022-jp,euc-jp,utf-8,ucs-2,cp932,sjis	
+set fileencodings=iso-2022-jp,euc-jp,utf-8,ucs-2,cp932,sjis
 "自動判別に使用する文字コード
 set visualbell		"ビープ音を可視化
 set nocompatible	"viとの互換性を取らない（vimの独自拡張を使う為）
 set fileformats=unix,dos,mac	"改行コードの自動認識
 set backspace=indent,eol,start	"バックスペースで削除できるものを指定
 set scrolloff=5		"上下5行の視界を確保
+"カーソルをinsert時はBox、ノーマル、ビジュアルモード時はbertical Bar
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 "------------------------------------------------------
 "バックアップ関係
@@ -136,17 +139,22 @@ let g:winresizer_horiz_resize=2		"縦リサイズの増減量
 "airlinの設定
 "Poweline系フォントを利用する
 let g:airline_poweline_fonts=1
+"タブラインを有効
 let g:airline#extensions#tabline#enabled=1
+"番号がタブラインに表示され、バッファを直接選択できる (<leader>+1,2,3,...)
 let g:airline#extensions#tabline#buffer_idx_mode=1
 let g:airline#extensions#whitespace#mixed_indent_algo=1
 let g:airline_theme='badwolf'
+"let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+"ユニコード記号誤って上書きすることを避けるために存在するかどうかを確認
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 
-let g:airline_section_a = airline#section#create(['mode','','branch'])
+let g:airline_section_a = airline#section#create(['mode','','crypt'])
+"let g:airline_section_a = airline#section#create(['mode','','branch'])
 set guifont=Ricty\ Regular\ for\ Powerline:h18
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 
 "unicode symbols
 let g:airline_left_sep = '»'
@@ -154,12 +162,12 @@ let g:airline_left_sep = '▶'
 let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
 let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.linenr = '␊'
 let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.maxlinenr = '⭡'
 "let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.paste = 'ρ'
@@ -169,7 +177,7 @@ let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
 
-let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+
 
 " powerline symbols
 let g:airline_left_sep = '⮀'
@@ -181,3 +189,18 @@ let g:airline_symbols.readonly = '⭤'
 let g:airline_linecolumn_prefix = '⭡'
 let g:airline#extensions#tabline#left_sep = '⮀'
 let g:airline#extensions#tabline#left_alt_sep = '⮀'
+
+"ステータスラインのワードカウントをミニマム '文字数 W' に
+let g:airline#extensions#wordcount#formatter#default#fmt = '%sW'
+
+"挿入モードからノーマルモードへの遅延解消
+set ttimeoutlen=50
+
+"空白エラーの検出を無効にする（ステータスラインのみ側表示を減らす為）
+let g:airline#extensions#whitespace#enabled = 0
+
+"空白チェックを全て無効に（ステータスラインのみ側表示を減らす為）
+let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long', 'mixed-indent-file' ]
+
+"暗号化検出を有効にする
+let g:airline_detect_crypt=1
