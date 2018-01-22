@@ -197,10 +197,10 @@ let g:airline#extensions#wordcount#formatter#default#fmt = '%sW'
 set ttimeoutlen=50
 
 "空白エラーの検出を無効にする（ステータスラインのみ側表示を減らす為）
-let g:airline#extensions#whitespace#enabled = 0
+"let g:airline#extensions#whitespace#enabled = 1
 
-"空白チェックを全て無効に（ステータスラインのみ側表示を減らす為）
-let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long', 'mixed-indent-file' ]
+"有効にする空白チェックを設定
+let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long', ]  
 
 "暗号化検出を有効にする
 let g:airline_detect_crypt=1
