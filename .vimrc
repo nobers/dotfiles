@@ -58,7 +58,7 @@ set nocompatible	"viとの互換性を取らない（vimの独自拡張を使う
 set fileformats=unix,dos,mac	"改行コードの自動認識
 set backspace=indent,eol,start	"バックスペースで削除できるものを指定
 set scrolloff=5		"上下5行の視界を確保
-"カーソルをinsert時はBox、ノーマル、ビジュアルモード時はbertical Bar
+"カーソルをinsert時はBox、ノーマル、ビジュアルモード時はVertical Bar
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
@@ -154,7 +154,7 @@ endif
 let g:airline_section_a = airline#section#create(['mode','','crypt'])
 "let g:airline_section_a = airline#section#create(['mode','','branch'])
 set guifont=Ricty\ Regular\ for\ Powerline:h18
-"let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'fancy'
 
 "unicode symbols
 let g:airline_left_sep = '»'
@@ -200,7 +200,8 @@ set ttimeoutlen=50
 "let g:airline#extensions#whitespace#enabled = 1
 
 "有効にする空白チェックを設定
-let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long', ]  
+let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 
 "暗号化検出を有効にする
 let g:airline_detect_crypt=1
+
