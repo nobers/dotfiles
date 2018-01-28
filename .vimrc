@@ -149,7 +149,7 @@ let g:winresizer_horiz_resize=2		"縦リサイズの増減量
 
 "airlinの設定
 "ハイライトをキャッシュし、高速に描画
-let g:airline_highlighting_cache = 0
+let g:airline_highlighting_cache = 1
 "Poweline系フォントを利用する
 let g:airline_poweline_fonts=1
 "タブラインを有効
