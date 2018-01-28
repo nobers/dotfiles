@@ -129,7 +129,7 @@ set hidden					"バッファが編集中でもその他のファイルを開け�
 set virtualedit=onemore		"行末の１文字先までカーソルを移動できるように
 "
 "vimgrepした時に自動的にquickfix-windowを開くようにする
-autocmd QuickFixCmdPost vimgrep cwindow		
+autocmd QuickFixCmdPost vimgrep cwindow
 
 nnoremap j gj	"折りたたまれた行内を下移動できるようにする
 nnoremap k gk	"折りたたまれた行内を上移動できるようにする
@@ -148,6 +148,8 @@ let g:winresizer_vert_resize=4		"横リサイズの増減量
 let g:winresizer_horiz_resize=2		"縦リサイズの増減量
 
 "airlinの設定
+"ハイライトをキャッシュし、高速に描画
+let g:airline_highlighting_cache = 0
 "Poweline系フォントを利用する
 let g:airline_poweline_fonts=1
 "タブラインを有効
