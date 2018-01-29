@@ -123,11 +123,14 @@ set softtabstop=4	"タブやバックスペースの使用等の編集操作を�
 "------------------------------------------------------
 "その他
 "------------------------------------------------------
-set cryptmethod=blowfish2	"利用する暗号化方式
-set autoread				"編集中のファイルが変更されたら自動で読み直す
-set hidden					"バッファが編集中でもその他のファイルを開けるように
-set virtualedit=onemore		"行末の１文字先までカーソルを移動できるように
-"
+let g:airline_detect_crypt=1	"暗号化検出を有効にする
+set cryptmethod=blowfish2		"利用する暗号化方式
+set autoread					"編集中のファイルが変更されたら自動で読み直す
+set hidden						"バッファが編集中でもその他のファイルを開けるように
+set virtualedit=onemore			"行末の１文字先までカーソルを移動できるように
+set ttimeoutlen=50				"挿入モードからノーマルモードへの遅延解消
+let $BASH_ENV = "~/.bash_aliases" ":! コマンドでも .bashrc のエイリアス設定を有効化
+
 "vimgrepした時に自動的にquickfix-windowを開くようにする
 autocmd QuickFixCmdPost vimgrep cwindow
 
@@ -147,6 +150,7 @@ let g:winresizer_gui_enable=1		"GUIでウィンドウ自体をリサイズする
 let g:winresizer_vert_resize=4		"横リサイズの増減量
 let g:winresizer_horiz_resize=2		"縦リサイズの増減量
 
+
 "airlinの設定
 "ハイライトをキャッシュし、高速に描画
 let g:airline_highlighting_cache = 1
@@ -158,7 +162,11 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_idx_mode=1
 let g:airline#extensions#whitespace#mixed_indent_algo=1
 let g:airline_theme='badwolf'
+
+"ステータスバーz_sectionの設定
+let g:airline_section_z = '%2p%% %3l/%L:%3v'
 "let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+
 "ユニコード記号誤って上書きすることを避けるために存在するかどうかを確認
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
@@ -178,7 +186,7 @@ let g:airline_symbols.crypt = '🔒'
 "let g:airline_symbols.linenr = '¶'
 "let g:airline_symbols.linenr = '␊'
 "let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '☰'
+"let g:airline_symbols.linenr = '☰'"
 "let g:airline_symbols.maxlinenr = '㏑'
 let g:airline_symbols.maxlinenr = '⭡'
 "let g:airline_symbols.branch = '⎇'
@@ -210,18 +218,14 @@ let g:airline_right_alt_sep = '⮃'
 let g:airline#extensions#tabline#left_sep = '⮀'
 let g:airline#extensions#tabline#left_alt_sep = '⮀'
 
+"ステータスラインのワードカウントを無効化
+let g:airline#extensions#wordcount#enabled = 0
 "ステータスラインのワードカウントをミニマム '文字数 W' に
-let g:airline#extensions#wordcount#formatter#default#fmt = '%sW'
-
-"挿入モードからノーマルモードへの遅延解消
-set ttimeoutlen=50
+"let g:airline#extensions#wordcount#formatter#default#fmt = '%sW'
 
 "空白エラーの検出を無効にする（ステータスラインのみ側表示を減らす為）
 "let g:airline#extensions#whitespace#enabled = 1
 
 "有効にする空白チェックを設定
 let g:airline#extensions#whitespace#checks = [ 'trailing' ]
-
-"暗号化検出を有効にする
-let g:airline_detect_crypt=1
 
