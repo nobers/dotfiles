@@ -2,6 +2,7 @@
 source ~/.git-prompt.sh
 source ~/.git-completion.bash
 
+#ターミナルにブランチ名を表示するために必要
 GIT_PS1_SHOWDIRTYSTATE=true
 
 #以下のようにすると、"[ユーザ名@ホスト名 ディレクトリ名 (ブランチ名)]$ "となる
