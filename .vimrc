@@ -141,6 +141,8 @@ nnoremap k gk	"折りたたまれた行内を上移動できるようにする
 nnoremap <silent><Space>]] :set columns=180<CR>	"Space+]] でウィンドウ横幅2倍"
 nnoremap <silent><Space>[[ :set columns=90<CR>	"Space+[[で横幅デフォルト(90)"
 
+nnoremap <Space>zz <C-z>		"vimをサスペンドし、ターミナルへ（fgでvimへ戻る）
+
 "------------------------------------------------------
 "プラグイン設定
 "------------------------------------------------------

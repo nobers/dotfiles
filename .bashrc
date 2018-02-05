@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #ターミナルにgitブランチ名等を表示させるシェルを呼び出す
-source ~/.git-prompt.sh
-source ~/.git-completion.bash
+#####source ~/.git-prompt.sh
+#####source ~/.git-completion.bash
 
 #ターミナルにブランチ名を表示するために必要
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -20,4 +20,9 @@ alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env_LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
 
+
+#[[ $(jobs | grep -c vim) != 0 ]] && SUSPEND="[VIM]"
+
+#if [ $(jobs | grep -c vim) != 0 ]; then text="[VIM]"
+#fi
 
