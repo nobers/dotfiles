@@ -26,3 +26,5 @@ alias vim='env_LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"
 #if [ $(jobs | grep -c vim) != 0 ]; then text="[VIM]"
 #fi
 
+
+
