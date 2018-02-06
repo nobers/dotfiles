@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #ターミナルにgitブランチ名等を表示させるシェルを呼び出す
-#####source ~/.git-prompt.sh
-#####source ~/.git-completion.bash
+source ~/.git-prompt.sh
+source ~/.git-completion.bash
 
 #ターミナルにブランチ名を表示するために必要
 GIT_PS1_SHOWDIRTYSTATE=true
