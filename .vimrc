@@ -58,7 +58,7 @@ inoremap <silent> っj <ESC>		"日本語入力対応版 jj
 set fileencodings=iso-2022-jp,euc-jp,utf-8,ucs-2,cp932,sjis
 
 set visualbell					"ビープ音を可視化
-set nocompatible				"viとの互換性を取らない（vimの独自拡張を使う為）
+"set nocompatible				"viとの互換性を取らない（vimの独自拡張を使う為）
 set fileformats=unix,dos,mac	"改行コードの自動認識
 set backspace=indent,eol,start	"バックスペースで削除できるものを指定
 set scrolloff=3					"上下3行の視界を確保

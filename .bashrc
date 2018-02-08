@@ -8,9 +8,8 @@ source ~/.git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 
 #以下のようにすると、"[ユーザ名@ホスト名 ディレクトリ名 (ブランチ名)]$ "となる
-#また、文字色は30m〜37mで順番に、黒、赤、緑、黄、青、マゼンダ、シアン、白
 # /uユーザ名、/hホスト名（ローカルpc）、/wディレクトリ名（Wでパスを含まない）
-export PS1='\[\e[36m\]\u@\h \[\e[33m\]\w \[\e[31m\]$(__git_ps1 "[%s]")\[\e[0m\]\$ '
+export PS1='\[\e[38;5;208m\]$(jobs -p)\[\e[36m\]\u@\h \[\e[38;5;226m\]\w \[\e[38;5;196m\]$(__git_ps1 "[%s]")\[\e[0m\]\$ '
 
 #上記の改行付きバージョン
 #export PS1='\[\e[32m\]\u@\h \[\e[33m\]\w \[\e[31m\]$(__git_ps1 "[%s]")\[\e[0m\]\n\$ '
@@ -21,10 +20,11 @@ alias vim='env_LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"
 
 
 
-#[[ $(jobs | grep -c vim) != 0 ]] && SUSPEND="[VIM]"
 
-#if [ $(jobs | grep -c vim) != 0 ]; then text="[VIM]"
-#fi
 
+
+
+
+#export PS1='\[\e[35m\]$(jobs -p)\[\e[36m\]\u@\h \[\e[33m\]\w \[\e[31m\]$(__git_ps1 "[%s]")\[\e[0m\]\$ '
 
 
