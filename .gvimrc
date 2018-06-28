@@ -1,10 +1,10 @@
-set lines=50	"ウィンドウの縦幅
+set lines=60	"ウィンドウの縦幅
 set columns=90	"ウィンドウの横幅
 set guifont=Ricty\ Regular\ for\ Powerline:h18
 set transparency=10		"デフォルト背景の透明度 10
 colorscheme molokai
 set background=dark		"ダーク系のカラースキームを使う
-
+highlight LineNr guifg=#bce4f4		"行番号の色指定
 
 "背景の透明・不透明の切り替えトグル （space + t +t）
 function! s:toggle_transparence()
@@ -20,6 +20,7 @@ nnoremap <silent> <Space>tt :<C-u>call <SID>toggle_transparence()<CR>
 " 日本語入力に関する設定:
 if has('multi_byte_ime') || has('xim')
   " IME ON時のカーソルの色を設定(設定例:紫)
+  highlight Cursor  guibg=Green guifg=NONE
   highlight CursorIM guibg=Purple guifg=NONE
   " 挿入モード・検索モードでのデフォルトのIME状態設定
   set iminsert=0 imsearch=0
