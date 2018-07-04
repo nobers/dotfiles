@@ -18,7 +18,8 @@ export PS1='\[\e[38;5;208m\]$(jobs -p)\[\e[36m\]\u@\h \[\e[38;5;226m\]\w \[\e[38
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env_LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
-
+#ターミナル256色表示
+export TERM=xterm-256color
 
 
 
